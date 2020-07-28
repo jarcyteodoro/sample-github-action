@@ -24,4 +24,5 @@ jobs:
       - name: Bump version and push tag
         uses: hennejg/github-tag-action@v4.1.jh5
         with:
+          default_bump : minor
           github_token: ${{ secrets.GITHUB_TOKEN }}
