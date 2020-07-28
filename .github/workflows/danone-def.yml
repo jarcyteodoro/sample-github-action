@@ -25,5 +25,6 @@ jobs:
         uses: hennejg/github-tag-action@v4.1.jh5
         with:
           release_branches : danone-def
+          default_bump : minor
           tag_prefix: danone-def-v
           github_token: ${{ secrets.GITHUB_TOKEN }}
