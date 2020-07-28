@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Autotag-master
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -21,11 +21,7 @@ jobs:
         with:
           fetch-depth: 0
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: 'Generate Difference'
-        run: |
-           LATEST_STABLE_TAG=`git tag  -l danone-def-v*  --sort=taggerdate | tail -n1`
-           echo Last Stable Tag
-           echo $LATEST_STABLE_TAG
-           CURRENT_COMMIT_ID=`git rev-parse --verify HEAD`
-           echo Current Commit ID
-           echo $CURRENT_COMMIT_ID
+      - name: Bump version and push tag
+        uses: hennejg/github-tag-action@v4.1.jh5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
