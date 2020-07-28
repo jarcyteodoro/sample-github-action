@@ -6,7 +6,7 @@ name: Autotag-master
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ danone-def ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -24,4 +24,5 @@ jobs:
       - name: Bump version and push tag
         uses: hennejg/github-tag-action@v4.1.jh5
         with:
+          tag_prefix: danone-def-v
           github_token: ${{ secrets.GITHUB_TOKEN }}
